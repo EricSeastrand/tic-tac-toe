@@ -12,6 +12,17 @@ function newTurn(){
 		/* Updates the text on the player's screen to show whose turn it is. */
 }
 
+/* picks a random space for whoever's turn it is, so you can play against the computer */
+function AI_pickRandomSpace() {
+	var availableSpaces = gameboard.find('td:contains(?)');
+		/* Get a list of all spaces that have a question-mark in them. */
+
+	var spaceToPlay = availableSpaces.eq(Math.floor(Math.random() * availableSpaces.length))
+
+	spaceToPlay.trigger('click');
+}
+
+
 
 /* Fill in all spaces with '?', to reset the gameboard. */
 function resetGameboard() {
