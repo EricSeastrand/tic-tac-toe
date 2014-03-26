@@ -35,6 +35,15 @@ function whichPlayerHoldsSpaceAt(x, y) {
 		/* Return the text of the cell at (x, y), which will be X or O or ? */
 }
 
+/* Tells us the X, Y coordinate of a given 'space' in the table. */
+/* Graciously copied+pasted from http://stackoverflow.com/a/6691501 */
+function getSpaceXY(space){
+	col = $(space).parent().children().index($(space));
+	row = $(space).parent().parent().children().index($(space).parent());
+
+	return [col, row];
+}
+
 
 
 
