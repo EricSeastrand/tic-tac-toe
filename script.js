@@ -44,6 +44,18 @@ function getSpaceXY(space){
 	return [col, row];
 }
 
+/* Attach an *event listener* to the body, so that any time a space is clicked, the code below is executed. */
+$(document).on('click', 'td.tic-tac-toe-space', function onSpaceClicked(e){
+	$(this).text(whoseTurnIsIt);
+		/* Set the text of this cell to whoever's turn it is */
+
+	var coordinatesOfSpace = getSpaceXY(this);
+		/* Find the XY coords of the space clicked. */
+
+	console.log('TicTacToe space ',coordinatesOfSpace,'was clicked by ',whoseTurnIsIt);
+		/* Output debugging information to console log. */
+
+});
 
 
 
