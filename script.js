@@ -3,6 +3,11 @@ var whoseTurnIsIt; /* Declare a *variable* to remember whose turn it is. */
 
 /* Sets 'whoseTurnIsIt' to the other player. (whoever's turn it ISN'T) */
 function newTurn(){
+	if( gameboard.find('td:contains(?)').length < 1 ) {
+		alert("Cat's game!\nPress OK to reset.");
+		resetGameboard();
+	}
+
 	if( whoseTurnIsIt === 'X' )
 		whoseTurnIsIt = 'O';
 	else
@@ -10,6 +15,11 @@ function newTurn(){
 
 	$('.whose-turn-is-it').text('Player '+whoseTurnIsIt+', GO!');
 		/* Updates the text on the player's screen to show whose turn it is. */
+
+	var playingAgainstComputer = document.getElementById('play-against-computer').checked;
+	if( playingAgainstComputer && whoseTurnIsIt === 'O'	 )
+		AI_pickRandomSpace();
+
 }
 
 /* picks a random space for whoever's turn it is, so you can play against the computer */
