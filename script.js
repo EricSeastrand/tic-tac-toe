@@ -7,7 +7,11 @@ function newTurn(){
 		whoseTurnIsIt = 'Y';
 	else
 		whoseTurnIsIt = 'X';
+
+	$('.whose-turn-is-it').text('Player '+whoseTurnIsIt+', GO!');
+		/* Updates the text on the player's screen to show whose turn it is. */
 }
+
 
 /* Fill in all spaces with '?', to reset the gameboard. */
 function resetGameboard() {
@@ -30,6 +34,7 @@ function whichPlayerHoldsSpaceAt(x, y) {
 	return space.text();
 		/* Return the text of the cell at (x, y), which will be X or O or ? */
 }
+
 
 
 
