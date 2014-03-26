@@ -55,8 +55,38 @@ $(document).on('click', 'td.tic-tac-toe-space', function onSpaceClicked(e){
 	console.log('TicTacToe space ',coordinatesOfSpace,'was clicked by ',whoseTurnIsIt);
 		/* Output debugging information to console log. */
 
+
 });
 
+/* Checks a given row for a winner */
+function checkForWinnerInRow(row) {
+	var countX=0; /* How many spaces player X has claimed */
+	var countO=0; /* How many spaces player Y has claimed */
+	for(var col=0; col<3; col++) {
+		var spaceClaimedBy = whichPlayerHoldsSpaceAt(row, col);
+
+		if( spaceClaimedBy === 'X' )
+			countX = countX+1;
+		else if( spaceClaimedBy === 'Y' )
+			countY = countY+1;
+	}
+
+	if(countX === 3)
+		return 'X';
+	if(countO === 3)
+		return 'O';
+	else
+		return undefined;
+}
+
+/* Checks a given column for a winner */
+function checkForWinnerInCol() {
+
+}
+/* Checks for diagonal winner */
+function checkForWinnerDiagonal() {
+
+}
 
 
 /* Tells the browser to run resetGameboard() when the page has loaded. */
