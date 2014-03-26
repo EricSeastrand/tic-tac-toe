@@ -20,6 +20,18 @@ function resetGameboard() {
 	newTurn();
 }
 
+/* This can be used to check and see which player has claimed a given space. */
+function whichPlayerHoldsSpaceAt(x, y) {
+	var row = gameboard.find('tr').eq(x);
+		/* Find row number 'x' on the 'gameboard' and remember it as the *variable* 'row' */
+	var space = row.find('td').eq(y);
+		/* Within that 'row', find the cell in column number 'y', and remember it as the *variable* 'cell' */
+
+	return space.text();
+		/* Return the text of the cell at (x, y), which will be X or O or ? */
+}
+
+
 
 /* Tells the browser to run resetGameboard() when the page has loaded. */
 $(resetGameboard);
